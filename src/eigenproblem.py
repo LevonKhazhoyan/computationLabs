@@ -12,7 +12,6 @@ class PartialEigenproblemMethod(Enum):
 
 def _solve_power_method(a: np.ndarray, eps: float) -> (float, np.ndarray, int):
     eigenvector = np.random.rand(a.shape[1])
-    prev_eigenvector = None
     eigenvalue = None
     prev_eigenvalue = None
     counter = 0
@@ -25,8 +24,7 @@ def _solve_power_method(a: np.ndarray, eps: float) -> (float, np.ndarray, int):
         eigenvector = a @ eigenvector
 
         eigenvalue = sqrt(
-            np.dot(eigenvector, eigenvector)
-            / np.dot(prev_eigenvector, prev_eigenvector)
+            np.dot(eigenvector, eigenvector) / np.dot(prev_eigenvector, prev_eigenvector)
         )
 
         eigenvector = eigenvector / linalg.norm(eigenvector, ord=2)
@@ -39,7 +37,6 @@ def _solve_power_method(a: np.ndarray, eps: float) -> (float, np.ndarray, int):
 def _solve_dot_product_method(a: np.ndarray, eps: float) -> (float, np.ndarray, int):
     eigenvector = np.random.rand(a.shape[1])
     helper_eigenvector = np.random.rand(a.shape[1])
-    prev_eigenvector = None
     eigenvalue = None
     prev_eigenvalue = None
     counter = 0

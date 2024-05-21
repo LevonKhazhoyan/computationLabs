@@ -19,7 +19,6 @@ def _generate_t_ij(matrix: np.ndarray, i: int, j: int) -> np.ndarray:
     denom = sqrt(matrix[i][i] ** 2 + matrix[j][i] ** 2)
     cos_phi = matrix[i][i] / denom
     sin_phi = -matrix[j][i] / denom
-
     t_ij = np.identity(matrix.shape[0])
     t_ij[i, i] = cos_phi
     t_ij[i, j] = -sin_phi

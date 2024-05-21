@@ -103,7 +103,7 @@ def solve_fdm(
         else:
             discretization = np.linspace(
                 ode.a, ode.b, n + 1
-            )  # For us N is a number of intervals, not points
+            )
             (a, b) = _gen_a_b(ode, discretization)
             prev_approx = sparse.linalg.spsolve(a, b)
 
