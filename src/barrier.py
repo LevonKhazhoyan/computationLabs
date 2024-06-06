@@ -26,7 +26,6 @@ def barrier_solver(f, x_0, phis, mu, eps, coef):
     theta = lambda x: barrier_theta(x=x, f=f, mu=mu, phis=phis)
     b = lambda x: barrier_b(x=x, phis=phis)
     iteration = 0
-    new_x = x_0
     while iteration < 10_000 and mu * b(x_0) >= eps:
         new_x = minimize(theta, x_0).x
         if barrier_check_range(x=new_x, phis=phis):

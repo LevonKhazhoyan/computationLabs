@@ -150,6 +150,10 @@ def solve_galerkin(
         b[i] = integrate.quad(lambda x: ode.f(x) * coord_system[i][0](x), ode.a, ode.b)[
             0
         ]
+        # ksi = sum(alpha*phi)
+        # L[u]* = f
+        # N = L[] - f
+        # Int(N*ksi) = 0
 
     sln = sparse.linalg.spsolve(a.tocsr(), b.tocsr())
 

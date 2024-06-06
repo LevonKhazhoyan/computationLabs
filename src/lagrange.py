@@ -28,7 +28,7 @@ def lagrange_solver(f, phis, our_lambda, a, alpha, x_0, eps):
     theta = lambda x, x_k, lambda_k: lagrange_theta(f=f, x=x, x_k=x_k, alpha=alpha, a=a, our_lambda=lambda_k, phis=phis)
 
     x_k = x_0
-    x_k_minus_1 = 0  # TODO
+    x_k_minus_1 = 0
     iteration = 0
 
     while (iteration == 0) or (iteration < 10_000 and np.sum(np.abs(x_k - x_k_minus_1)) >= eps):
